@@ -16,3 +16,4 @@ calc.min = function(a, b) {
 }
 
 module.exports = calc;
+//반환하는 객체는 함수가 될 수도 문자열이 될 수도 있다.
