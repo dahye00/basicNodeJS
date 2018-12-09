@@ -16,6 +16,20 @@ router.get('/', function(req, res, next) {
     });
 });
 
+router.get('/create', function(req, res, next) {
+    res.render('create');
+});
+
+router.post('/create', function(req, res, next) {
+    var body = req.body;
+
+    client.query(
+        'INSERT INTO member(id,pw,name) VALUES(?, ?, ?)',
+        [body.id, body.pw, body.name],
+        function() {res.redirect('/create');}
+    );
+});
+
 /* GET home page. */
 /*
 router.get('/', function(req, res, next) {
