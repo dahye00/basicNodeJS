@@ -12,7 +12,7 @@ var client = mysql.createConnection({
 router.get('/', function(req, res, next) {
     client.query('SELECT * FROM member;', function(err, result, fields) {
         if(err) console.log('쿼리문에 오류가 있습니다.');
-        else res.json(result);
+        else res.render('create', {result: result});
     });
 });
 
@@ -26,7 +26,9 @@ router.post('/create', function(req, res, next) {
     client.query(
         'INSERT INTO member(id,pw,name) VALUES(?, ?, ?)',
         [body.id, body.pw, body.name],
-        function() {res.redirect('/create');}
+        function() {
+            res.redirect('/');
+        }
     );
 });
 

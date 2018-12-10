@@ -22,6 +22,17 @@
         </table>
         <input type="submit" value="전송하기">
     </form>
-    
+
+    <h3>결과 확인하기</h3>
+    <table>
+        <% for(let data of result) { %>
+        <tr>
+          <td><%= data.name %></td>
+          <td><%= data.id %></td>
+          <td><%= data.pw %></td>
+        </tr>
+        <% } %>
+    </table>
+
 </body>
 </html>
